@@ -1,0 +1,19 @@
+{
+  "name": "picsart-media-studio",
+  "owner": {
+    "name": "Picsart",
+    "url": "https://picsart.com"
+  },
+  "metadata": {
+    "description": "Picsart Media Studio skills for Claude, on the Picsart Media Studio connector.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "picsart-media-studio",
+      "source": "./",
+      "description": "Create, edit, preview and render videos and images in Claude as editable scenes, with the Picsart Media Studio connector. No generative AI.",
+      "version": "0.1.0"
+    }
+  ]
+}

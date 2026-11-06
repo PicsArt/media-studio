@@ -1,0 +1,24 @@
+{
+  "name": "picsart-media-studio",
+  "version": "0.1.0",
+  "description": "Picsart Media Studio skills for Claude: create, edit, preview and render videos and images from your own clips and photos, Picsart Drive and Picsart templates, as editable scenes. No generative AI: analysis can use AI to understand your media, and every change to it is an algorithmic edit or your own.",
+  "author": {
+    "name": "Picsart",
+    "url": "https://picsart.com"
+  },
+  "homepage": "https://picsart.com",
+  "repository": "https://github.com/PicsArt/media-studio",
+  "license": "MIT",
+  "privacyPolicyUrl": "https://picsart.com/privacy-policy",
+  "keywords": [
+    "picsart",
+    "media-studio",
+    "mcp",
+    "video-editing",
+    "image-editing",
+    "templates",
+    "transcription",
+    "reframe"
+  ],
+  "mcpServers": "./.mcp.json"
+}
