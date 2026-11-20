@@ -18,7 +18,7 @@ clip with a trimmed export: that welds the handles shut.
 Build the cut with `picsart_scene_apply_template`: `uri: "scene://montage"`,
 `mode: "bootstrap"`, and `parameters`:
 
-- `clips`: one per generation, in story order. Each is a full clip: `duration` (the file's probed
+- `clips`: one per take, in story order. Each is a full clip: `duration` (the file's probed
   duration) and `content: { kind: "media", assetId: "<the take's url>", assetType: "video",
   trim: { in: 0, out: <that duration> }, fit: "cover" }`. Without `assetType: "video"` the file is read as a still and the trim is ignored.
   This URL-in-`assetId` form is the template's input, not a scene document's;

@@ -17,8 +17,8 @@ also when the work resumes at that stage.
 
 ## Tools
 
-Tools are named here by their server names, such as `picsart_scene_export`. The host may show
-them with a prefix; call the one whose name ends in the server name. Never name a tool to the user,
+Tools are named here by their tool names, such as `picsart_scene_export`. The host may show
+them with a prefix; call the one whose name ends in the tool name. Never name a tool to the user,
 nor a model unless they asked about models. Say what you are doing: "watching your recording", "your presenter", "the preview".
 
 If a tool named here or in a use case is not in your list, say that this part is not available
@@ -66,8 +66,8 @@ runs out, so to render several exports at once, start each with the default and 
   record: do it. Questions are for taste and for money.
 - **A board is the whole turn.** Open it, add at most one line, and end the turn. Never write the
   board's content out in chat beside it.
-- **Read the reply before the sentence around it.** A board's decision arrives as the host notes
-  say. Never ask the user to repeat, press again or paste a decision.
+- **Read the reply before the sentence around it.** A board's decision arrives as `references/HOST.md`
+  says. Never ask the user to repeat, press again or paste a decision.
 - **A request to see something is a request to open its surface**: a plan on its board, a picture
   as the picture, a cut in REVIEW. Never print its data instead.
 - **Material arriving is itself the request.** Pictures, takes or files that land are shown,
@@ -117,9 +117,9 @@ The questions themselves are in each use case. This is how every one of them is 
 10. **Revise only what was named.** A comment changes what it points at. After the third round on
     the same pass, ask what is causing the misses (the look, the pace, the words) instead of
     patching again.
-11. **A note that holds everywhere becomes a standing decision.** When a correction is general
-    ("never zoom on the sidebar", "always end on the logo"), keep it in the project record with
-    its reason and apply it to everything after, so the user never gives the same note twice.
+11. **A note that holds everywhere becomes a standing decision.** When a correction is general ("never zoom on the sidebar", "always end on the logo"), keep it in the project record with its reason and apply it to everything after, so the user never gives the same note twice.
+12. **A closed choice goes through `picsart_ask`.** Before you decide it is absent, look it up in your tool list or by tool search: a host can defer a tool or namespace it under the connector's name ("Picsart Staging", say). Plain chat is the fallback only after that lookup finds nothing or a `picsart_ask` call errors; never a first choice, never on assumption.
+13. **A lookup draws nothing.** Reading what the user already has (saved characters, library entries, Drive files) before asking is silent: use a data-only tool (`picsart_asset_list`), or let the board that follows do the lookup. A browse widget (`picsart_scene_library_list`, `picsart_drive_list`, the Assets panel) has no confirm button: never open it for a lookup or as a choice, only when the user asks to browse, and what they open there is context, not an answer. A choice goes through a board with a confirm button (`picsart_ask`, the cast board, `picsart_scene_picker`, `picsart_asset_approve`, the upload board, and any model or effect chooser). **No character step without a character:** a plan with none (a product promo, an explainer with no presenter, a scenery or object story) never opens the cast board or a library widget and never looks characters up.
 
 ## The project record
 
@@ -139,7 +139,7 @@ In unattended pace the record also keeps `pace: "unattended"` and two more lists
     "options": [{ "label": "The phone close-up", "effect": "the stake reads in 1 s" }],
     "recommended": 0, "assumed": 0, "blocking": false, "dependsOnIt": ["5c"], "answer": null }],
   "pendingReviews": [{ "id": "r-02", "stage": "slides", "what": "the animatic", "link": "<editor or file URL>", "approval": null }],
-  "pendingSpends":  [{ "id": "s-03", "stage": "voice", "what": "8 voice lines, one batch", "quote": 14, "consent": null }] }
+  "pendingSpends":  [{ "id": "s-03", "stage": "read", "what": "3 recordings, one batch", "quote": 14, "consent": null }] }
 ```
 
 **A summary is not the rules.** When work resumes from a summary of an earlier conversation, read
@@ -150,10 +150,10 @@ drops the stages and their gates.
 
 | Interaction | When | What happens |
 |---|---|---|
-| **ASK** | The user must choose | One decision per question: 2–4 options, the recommended one first, each option saying what it changes. Never make the user type an answer you have already listed. How to ask is under Asking; ask it as ASK (with your host's own question tool, such as AskUserQuestion, so the options are buttons the user taps, the recommended one first; only where the host has none, the options numbered in one message; in unattended pace, never ask: write it to the project record's openDecisions with the answer you assumed, as picsart-video-rules says) |
+| **ASK** | The user must choose | One decision per question: 2–4 options, the recommended one first, each option saying what it changes. Never make the user type an answer you have already listed. How to ask is under Asking; ask it as ASK (with `picsart_ask`, found as picsart-video-rules says, for any closed choice, a multi-select included, so the options are buttons the user taps, the recommended one first; then your host's own question tool, such as AskUserQuestion; only where all fail, the options numbered in one message; in unattended pace, never ask: write it to the project record's openDecisions with the answer you assumed, as picsart-video-rules says) |
 | **REVIEW** | The user must see the work before it is final | Open the scene in `picsart_scene_editor` and wait |
 | **SHOW** | An image, a video or audio is ready | Show it, with one line on what it is |
-| **SPEND** | A call charges credits | Quote it, then get an explicit yes, unless a spend limit the user stated covers it. Ask it as SPEND (quote it in one line, then get the yes with your host's own question tool, such as AskUserQuestion, "Yes, go ahead" / "Yes, up to N credits for this task" / "No", never as a typed question; only where the host has no such tool, those options numbered in one message; unless a spend limit the user stated covers it: N credits or an explicit no-limit ("as much as needed"), never inferred from words like "go ahead". Within it, ask nothing: quote it in one line ("About 8 credits; 12 of 20 left after this"), call it, then say what it spent and what remains, keeping a running total that includes failed calls, and stop to ask before the first call that would cross it. A money amount is asked once to restate it in credits; in unattended pace, never ask: call only with a consent or a stated spend limit already recorded, otherwise write the quote to pendingSpends and stop, as picsart-video-rules says) |
+| **SPEND** | A call charges credits | Quote it, then get an explicit yes, unless a spend limit the user stated covers it. Ask it as SPEND (quote it in one line, then get the yes with `picsart_ask`, found as picsart-video-rules says, "Yes, go ahead" / "Yes, up to N credits for this task" / "No", else your host's own question tool, such as AskUserQuestion; never as a typed question unless both fail; only then those options numbered in one message; unless a spend limit the user stated covers it: N credits or an explicit no-limit ("as much as needed"), never inferred from words like "go ahead". Within it, ask nothing: quote it in one line ("About 8 credits; 12 of 20 left after this"), call it, then say what it spent and what remains, keeping a running total that includes failed calls, and stop to ask before the first call that would cross it. A money amount is asked once to restate it in credits; in unattended pace, never ask: call only with a consent or a stated spend limit already recorded, otherwise write the quote to pendingSpends and stop, as picsart-video-rules says) |
 | **DELIVER** | The work is approved | Export once and give the file |
 
 ### REVIEW
@@ -161,7 +161,7 @@ drops the stages and their gates.
 Call `picsart_scene_editor` with `sceneUrl` when you hold the scene as a URL, otherwise with
 `scene` set to the scene document itself, as a parsed object, never a string. Before you open it:
 
-- expand every `scene_ref` layer with `picsart_scene_expand_ref`;
+- open the scene in the editor as it is. A scene_ref stays a reference. Change a placed scene through its parameters at the call site. Expand a reference (picsart_scene_expand_ref) only when the user asks to edit inside it; if the tool refuses (detach_reads_parameters, detach_plays_actions), keep the reference and say why;
 - make sure every media URL in the scene is Picsart-hosted (see Asset URLs);
 - run the use case's check (see Evaluation).
 
@@ -195,6 +195,15 @@ On `needs_changes`:
   scene and open the editor again on it.
 - The reply carries no video. Never say anything was rendered or saved because of it.
 
+### Every scene animation is reviewed in the editor
+Every scene animation a flow shows the user for review opens in `picsart_scene_editor`, where the user pins
+defects on frames: a rough cut, each shot, a character's test render, a revision, and the final review before the
+export. A preview video, an exported draft or a contact sheet is never a substitute for it: they are your checks, and
+the pins are the user's. After you fix the pins, open the editor again on the new version and say which pins you
+addressed (by what each one pointed at) and which you did not, and why. Where the host cannot draw the editor, the
+fallback in `references/HOST.md` (a draft preview export) still applies. Video a model generated, rather than a scene
+you built, is not a scene animation: its use case says how it is reviewed.
+
 On approval at the use case's last review, DELIVER the latest document: theirs if they edited it,
 otherwise yours. An approval at an earlier review (a cut before its music, one transition of
 several) is not a delivery: carry the approved document into the use case's next stage. If the
@@ -207,7 +216,7 @@ user makes it. Build 2–6 candidates and ASK with `picsart_scene_picker`: one e
 candidate, with its document as `scene` (or the URL it is hosted at) and, when you have one, a
 rendered `previewUrl`. Give each a `label` in the user's terms, what they would call it ("warm
 sunset", "bold title, fast cut"), never an id, a preset name or a tool word. Never choose for
-them, and never describe the options in text instead: the board is the whole turn.
+them, and never describe the options in text instead: the board is the whole turn. Candidates you build stay at 2–6; a catalogue of ready-made tiles (a style index) offers every row, one entry each with its `previewUrl` and a `category` (the chip the use case's column of the index's chip table names for the row, else `Other styles`; every card has one), marks 4 to 6 cards `recommended`, and orders the cards by the chip table's chip order with `Other styles` last. A board with no `recommended` card opens on its first category; there is no "All" chip.
 
 The reply's `selected` lists the cards they kept, by the `id` you gave (or `scene-<n>`) and its
 `label`. Continue from exactly those, with the documents you passed in, and tell the user in one
@@ -222,7 +231,7 @@ credits. Use that contract for every call; skills do not override a tool's billi
 analysis required by the step, applying the same pricing rule. Before a charged call:
 
 1. Quote it:
-   read the balance with `picsart_credits`. Never quote a number from memory. If a charged
+   read the balance with `picsart_balance`. Never quote a number from memory. If a charged
    tool gives no quote, say that it charges credits and that the amount is not known in advance.
 2. Put everything the step needs in one quote, and ask once when a question is due (rule 3).
 3. **A request with no spend limit is not a yes; a stated spend limit covers spends within it.**
@@ -254,12 +263,26 @@ scene editor are free.
 
 ### DELIVER
 
+**No final export before the editor review.** The scene you deliver must have been opened with
+`picsart_scene_editor` in this conversation, and the user's approval of it received (the REVIEW
+above). A contact sheet, a render, `picsart_scene_tune` or your own check is never that review: they
+are your checks, and the user's eyes on the editor are theirs. If the scene was not opened, open it
+now and end the turn; do not deliver first and ask afterwards. Two things stay allowed: the draft
+preview export the host's fallback names (`references/HOST.md`, for a host that cannot draw the
+editor) is how the user reviews there, and the user saying, in words, to skip the review or to
+export now; for the second, say in one line that the review was skipped at their word.
+
 Export the approved scene once with `picsart_scene_export`, follow its receipt as Tools says, and
-give the link with one line on what it is. The finished result names the Drive save as a
-`picsart_drive_upload` call with its arguments; make that call to save the file to the user's
-Picsart Drive. Only an `async: false` export saves it there by itself. Either way, say it was saved
-only when a result returns a `driveUid`. Then offer one next step in a sentence, and do it only if
+give the link with one line on what it is. Its result card offers Save to Drive, then Open in Drive (an export with
+`folderUid` it files there itself): make the `picsart_drive_upload` call the finished result names only when the user
+asks you to keep the file, and otherwise point to the card's save in that line. Say it was saved
+only when a result returns a `driveUid` or the card tells you so. Then offer one next step in a sentence, and do it only if
 the user says yes.
+
+**Never claim more than you saw.** Say what the delivered film does only as far as you looked at it: a reach that
+stopped at the face is "reaches toward the face", not "points at the kite". A shortfall you saw (a missed target, a
+finish not applied, a check you did not run) is stated plainly, with where in the film; never write that the brief was
+met when part of it was not.
 
 **Report the truth before the praise.** Every check of your own that failed its bar goes in the delivery
 message, named with its measured value and its bar ("planted foot drifts 4.9 px, the bar is 4"), before any
@@ -310,8 +333,8 @@ that reads the record later. Nothing in it removes a safeguard; it changes where
 - Asset URLs are opaque handles. Show them to the user as links and pass them back into tools
   exactly as returned. Never read a hostname, a path or a query string as meaning anything.
 - Never open, download or fetch a video or audio URL yourself: the tools read it. An image is the
-  one exception. To look at one yourself (a still sheet, a contact-sheet frame, a generated
-  picture, a reference the user brought), open its URL as the host notes say under "Looking at an
+  one exception. To look at one yourself (a still sheet, a contact-sheet frame, a saved
+  picture, a reference the user brought), open its URL as `references/HOST.md` says under "Looking at an
   image". Never describe an image you have not looked at. Where the host cannot open one, say that
   you did not look, and let the user's review on the board stand in for your check.
 - **Where a URL came from decides what it is, never how it looks.** A URL a Picsart tool returned
@@ -319,17 +342,17 @@ that reads the record later. Nothing in it removes a safeguard; it changes where
   an export, a still sheet,
   the editor's document) is Picsart-hosted. Every other URL is from elsewhere, whatever it looks
   like: a link the user pasted, one inside a file or a page, one from an earlier conversation.
+- **A file you made on this machine goes up through `picsart_upload_local_files`, never a raw upload.**
+  A scene document built in a script (`type: "scene"`), a model script (`type: "script"`) or an SVG or
+  picture are each passed by name and size; run the command it returns and use the `url` it prints,
+  as `scene`, `sceneUrl`, `scriptUrl` or an asset's `uri`. Never write your own multipart upload (curl, Python requests, fetch) to an upload host, whatever its address: no tool accepts what you put there as
+  yours, and the host is not yours to name. Small documents may instead be passed inline as `scene`.
 - A scene opened in REVIEW plays only Picsart-hosted media. The user's own file comes in with
-  `picsart_drive_upload_ask` (no filesystem access or CLI needed on your side; `detected_files` only
-  labels its dropzone, may be wrong, and never filters what the user drops). Ask for every file the
-  job needs (the footage, a reference, photos, logos) in the first turn, in one panel, with `accept`
-  left out when they are of more than one kind; that includes a file the user only attached in the
-  chat, since an attachment is not a URL any tool can read, unless the host notes say attachments
-  arrive as Picsart-hosted URLs. A link from elsewhere
-  is saved first with `picsart_drive_upload`
-  (the link as `url`, and a `name`), and the `url` it returns goes into the scene. A file the user
-  names in their Picsart Drive is found with `picsart_drive_list`; use its `url`, never its
-  `downloadUrl`.
+  `picsart_drive_upload_ask` (no filesystem access or CLI needed on your side; `detected_files` only labels its dropzone, may be wrong, and never filters what the user drops). Ask for every file the
+  job needs (the footage, a reference, photos, logos) in the first turn, in one panel, with `accept` set to the kind the step uses (`'image'` for characters, sheets and scene pictures, `'audio'` for a voice or music, `'video'` for footage) so the panel lists only what the step can use, and left out when they are of more than one kind; that includes a file the user only attached in the
+  chat, since an attachment is not a URL any tool can read, unless `references/HOST.md` says attachments arrive as Picsart-hosted URLs.
+  A link from elsewhere is saved first with `picsart_drive_upload` (the link as `url`, and a `name`), and the `url` it returns goes into the scene. A file the user
+  names in their Picsart Drive is found with `picsart_drive_list`; use its `url`, never its `downloadUrl`.
 
 ## The user's own brief
 

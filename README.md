@@ -26,9 +26,10 @@ Use cases, the entry points a user asks for:
 | Skill | Description |
 |---|---|
 | [`animate-design`](./skills/animate-design) | Turn static material into a real motion-designed video. |
+| [`assets`](./skills/assets) | Open the Picsart Assets panel on what the user made with Picsart. |
 | [`edit-footage`](./skills/edit-footage) | Make videos from the user's own footage, or copy a reel's structure onto their script. |
 | [`get-started`](./skills/get-started) | Get started with Picsart Video. |
-| [`make-cartoon`](./skills/make-cartoon) | Make a short cartoon clip with a character the user picks or describes. |
+| [`make-clips`](./skills/make-clips) | Cut one long video into several standalone clips. |
 | [`make-screen-videos`](./skills/make-screen-videos) | Turn a screen recording of an app or site into videos. |
 | [`recreate-video`](./skills/recreate-video) | Rebuild a reference video as an editable animated scene that moves and looks like it. |
 
@@ -36,10 +37,9 @@ Skills the use cases load:
 
 | Skill | Description |
 |---|---|
-| [`app-ui-animation`](./skills/app-ui-animation) | Build a phone or web UI in a scene with scrolling, carousels, button feedback, cursor paths and clicks, context menus, drag-and-drop, synchronized controls, bottom sheets and frosted-glass panels. |
+| [`app-ui-animation`](./skills/app-ui-animation) | Build a phone or web UI in a scene with scrolling, carousels, button feedback, cursor paths and clicks, context menus, drag-and-drop, synchronized controls, bottom sheets, frosted-glass panels and boxes that fit their text (chat bubbles, tags, badges). |
 | [`asset-audit`](./skills/asset-audit) | Audit media assets BEFORE they enter scene cards, boxes or looks. |
 | [`caption-decorations`](./skills/caption-decorations) | Author and validate scene caption decorations, choosing between measured procedural decoration presets and arbitrary scene artwork. |
-| [`character-rigging`](./skills/character-rigging) | Build and animate a 2D cartoon character in a scene. |
 | [`custom-transitions`](./skills/custom-transitions) | How to write a new scene transition as an inline JSON definition. |
 | [`design-layer-import`](./skills/design-layer-import) | Bring a design or static assets into a scene as LAYERS, not flat frames, whenever they are going to move. |
 | [`edit-on-your-computer`](./skills/edit-on-your-computer) | Edit footage on the user's own computer. |
@@ -54,7 +54,7 @@ Skills the use cases load:
 | [`linked-element-motion`](./skills/linked-element-motion) | Keep related scene elements aligned and moving together, including container resizing, shared fades, content reveals and sibling reflow. |
 | [`motion-design-craft`](./skills/motion-design-craft) | The craft of adding motion to any scene, whatever the video. |
 | [`motion-intent`](./skills/motion-intent) | Choose and diagnose scene motion from communication intent before selecting presets or keyframes. |
-| [`motion-pattern-library`](./skills/motion-pattern-library) | Worked scene motion patterns for entrances, exits, stagger, directional nudges, emphasis, ambient life, springs, arcs, layered beats, parenting, parallax, focus, wipes, drawn strokes, and cartoon fast motion (smears, multiples, speed lines). |
+| [`motion-pattern-library`](./skills/motion-pattern-library) | Worked scene motion patterns for entrances, exits, stagger, directional nudges, emphasis, ambient life, springs, arcs, layered beats, parenting, parallax, focus, wipes, drawn strokes, cartoon fast motion (smears, multiples, speed lines), slapstick props (a thrown or bounced prop landing on a socket, stars circling a head), and text that counts or swaps words (a price or score counter, a countdown, a timecode). |
 | [`motion-review`](./skills/motion-review) | Review an existing scene for motion that is confusing, mistimed, distracting, broken at a seam, or unnecessarily expensive. |
 | [`motion-scene-continuity`](./skills/motion-scene-continuity) | Plan and diagnose continuity across scene beats and scene boundaries—semantic handoffs, dominant direction, shared visual carriers, causal action/reaction, intentional resets, and seam verification. |
 | [`motion-tracking-from-video`](./skills/motion-tracking-from-video) | Measure what objects visibly do in a video. |

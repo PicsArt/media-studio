@@ -1,7 +1,7 @@
 # The style library
 
 Ready-made references for a reel with no reference of the user's own: each style is a structure
-sheet and a look, written by us from reels many people make now and from the scene engine's own
+sheet and a look, written by us from reels many people make now and from Picsart's own
 templates and looks. A style is used exactly as a reference reel's written breakdown is: its sheet
 parses for free, and nothing of the reels it was learned from (their footage, sound, words,
 creators or apps) is in it or reaches the user.
@@ -32,7 +32,7 @@ the picker, including styles not yet proven by an agent build. The index lists e
 its validation status, and the ranking retains that status as `proven`. It records build history;
 it does not restrict selection. A style whose build fails stays `no` until its recipe is fixed and
 a new build passes. Every selected style still goes through the same build and review checks.
-`style_check.py` checks against the scene engine's catalog snapshot in the skill's `data/` folder.
+`style_check.py` checks against a snapshot of Picsart's catalog in the skill's `data/` folder.
 These three scripts run only from this skill, beside the styles and data they read: they are its
 `local-scripts`, which the build never copies into a skill that imports this one's scripts.
 
@@ -45,7 +45,7 @@ of SKILL.md's section 2.
 | Looks like | one plain line the user reads |
 | Vibe | words a user might say for this look ("cinematic, film look"), matched against the user's own words |
 | Fit | `slots A–B; media; subjects; occasions; moods`: media is `photos` (no clips), `clips` (no photos) or `mixed` (either or both) |
-| Music | the bed's mood and tempo, for the background-music skill's brief; never a named song |
+| Music | the bed's mood and tempo; never a named song |
 | Skin | what this style takes from the occasion skin (below): the title's words, colours, labels |
 | Preview | our own sample reel on the Picsart CDN, or `none yet`; every preview shows the autumn skin |
 | Proven | `yes: agent build <date>, match|close` once a blind agent build from this file alone graded match or close-and-shippable against its source; `yes: agent build <date>, user-approved` when the user approved that build's side by side; else `no` |
@@ -57,8 +57,8 @@ of SKILL.md's section 2.
 | Ending | how the reel ends |
 | Skills | the skills that build this style, loaded at the build |
 
-Every catalog id and template here was checked against the scene engine's catalog at 55.104.0, and
-every preview was rendered on that engine with the templates' own sample photos. When one is
+Every catalog id and template here was checked against the catalog snapshot in `data/`, and
+every preview was rendered with the templates' own sample photos. When one is
 missing from `picsart_scene_capabilities`, build the rest of the style and say which part is
 missing in one line; never swap in another id silently.
 

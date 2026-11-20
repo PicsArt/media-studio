@@ -6,7 +6,7 @@ into a scene, these rules hold. Each path adds only its **source-specific ingest
 common base; everything below is identical for both.
 
 ## 1. Reach for the highest-level tool first
-You are an orchestrator; the Picsart media server is the engine. Before hand-building anything op-by-op,
+You are an orchestrator; Picsart's tools do the building. Before hand-building anything op-by-op,
 check for a **scene template** (`apply_scene_template`), a **motion preset** / **text animation**, or a
 **recipe** (`get_recipe`: its index with no name, `quick-merge-and-export` among them) that already does it. `patch_scene` is for
 *edits*, not for constructing whole scenes by hand when a template fits.

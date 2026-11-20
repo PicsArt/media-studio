@@ -34,6 +34,12 @@ Premise: what the video is, in at most 120 words, as its maker would pitch it.
   it must land by. Who each person is to the others, who is spoken to, and why someone decides are
   must-knows. A promise (what the video will show) is a must-know by 3 s. A caveat or a disclaimer
   is not one, unless the user asks for it.
+  For a short cut from longer footage, write them for someone new to its game, show and people
+  (the retention-hooks skill's `what-a-cut-is`, question 4): a name or a stake only the full
+  footage explains is a must-know the cut has to show, or the cut is wrong. Such a short also has
+  two must-knows of its own: what the viewer is waiting to find out, by 3 s, and who is speaking
+  and why they are worth hearing, by 6 s. A viewer who watches with the sound off must hit both
+  from the frames and the words on screen (the spoken-captions skill's muted pass).
 - **1 to 3 must-not-thinks**: the wrong beliefs this video invites, never a caveat.
 - **3 to 6 after-watch questions**, each with its answer. The user confirms them with the story or
   the script.

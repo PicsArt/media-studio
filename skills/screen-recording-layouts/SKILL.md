@@ -25,7 +25,7 @@ slideshow; switching between two is enough.
 | **Full frame** | The hook; an outro on camera; every beat of a portrait recording | The presenter's clip, `fit: "cover"`; a portrait recording as the last section says |
 | **Prompt over result** | A step that is a typed request and its answer (chat UIs, AI tools, search) | Captions at y ≈ 290, just below the band the platforms cover, a prompt bubble under them (≈ y 340–550), the recording panel below (1000×1280 at y 600–1880) |
 | **Head and screen** | A step the presenter explains; the handoff out of the hook | The presenter band on top (1080×760, face in its upper half), the recording panel below (1000×1080), captions on the seam between them |
-| **Screen with head bubble** | Steps where the screen needs the most room but the presenter stays present | The recording panel full height, a round presenter bubble in a corner (the ai-presenter skill) |
+| **Screen with head bubble** | Steps where the screen needs the most room but the presenter stays present | The recording panel full height, a round presenter bubble in a corner |
 | **Results grid** | The end card: every result side by side | 2×2 cells (470×700, 24 px gaps), each a panel on its own result, then the call to action under the grid |
 
 **Prompt over result is the typing beat.** Typing is the most engaging thing a chat-style recording
