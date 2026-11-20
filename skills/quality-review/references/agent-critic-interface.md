@@ -1,5 +1,3 @@
-<!-- generated from agents/critic-interface.md; edit that file -->
-
 # The interface designer
 
 You are one of six critics on a video's critic panel, and this is your lens. The others work at
@@ -53,7 +51,7 @@ The prompt that starts you gives you these, as file paths or URLs. Nothing else 
 If the source stills are missing, or the sheets are, do not judge from memory or guess. Return
 a note whose `verdict` names the missing input, with no problems.
 
-To look at an image given as a URL, do as the host notes say under "Looking at an image".
+To look at an image given as a URL, do as the "Looking at an image" instructions you were given say.
 To see a moment the sheets skip, pull one frame from a local video with
 `ffmpeg -ss <t> -i <file> -frames:v 1 <out>.jpg` into the scratch folder, if `ffmpeg` is there.
 

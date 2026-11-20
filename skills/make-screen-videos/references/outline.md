@@ -18,9 +18,6 @@ Write its input to a file, as one JSON object `{ spec, moments, transcript?, lin
 - `spec`: the object below;
 - `moments`: the result of `picsart_media_screen_moments` for this recording, exactly as returned;
 - `transcript`: with `narration: "own"` only, the `picsart_media_transcribe` result, as returned;
-- `lines`: with `narration: "voice-over"` only, one `{ step, url, duration }` per step: the step's
-  id, the voice line's URL as a Picsart tool returned it, and its length as
-  `picsart_media_probe` measured it.
 
 Then run `python3 scripts/tutorial_scene.py <file>` from this skill's folder.
 

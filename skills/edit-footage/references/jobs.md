@@ -28,14 +28,20 @@ The record's `pipeline` for each job, in the core order. The defaults of the ree
 |---|---|
 | `broll-voiceover`, `talking-broll` | `intake, reference, proxies, log, takes, look, story, plan, build, qc, critics, review, finish, deliver` (`proxies` only for footage on this computer) |
 | `footage-story` | the same, without `takes` |
-| `reel`, `highlight`, `podcast-clips`, `split`, `montage`, `slideshow`, `lesson` | `intake, reference, log, story, plan, build, qc, critics, review, deliver` (`reference` only when a reference reel was given or the cut is Vibe or Match a reel, both known before the record starts; `split` always has one) |
+| `reel`, `highlight`, `montage`, `slideshow`, `lesson` | `intake, reference, log, story, plan, build, qc, critics, review, deliver` (`reference` only when a reference reel was given or the cut is Vibe or Match a reel, both known before the record starts) |
 | `remix` | `intake, reference, story, plan, build, qc, critics, review, finish, deliver` |
-| `channel-clips` | `intake, reference, log, story, plan, build, qc, critics, review, deliver` (`reference` always: the look is the job) |
+
+Every job's checks are the same: the challenger's verdict in `challenges` before the run goes on
+from `story` (the moments, the map or the mapping) and from `plan` (the cut and its opener, or the
+route), and the QC inspector's and the critic panel's verdicts on `qc` and `critics` before
+delivery: the CHALLENGE, QC and CRITICS gates of SKILL.md's flow. Only the user skips one, by
+name, and the skip is recorded in their words.
 
 ## An old record, carried on by hand
 
-A record from before the merge is resumed, never restarted. Without commands, mark done what it
-shows as done, each with its `reads`, as the edit-pipeline skill says, and set `useCase` to
+A record from before the merge is resumed, never restarted. Its stages marked done here keep
+`migrated: true` and need no verdict for a check that ran before the record held them. Without
+commands, mark done what it shows as done, each with its `reads`, as the edit-pipeline skill says, and set `useCase` to
 `edit-footage` and `pipeline` to the job's row above:
 
 | Old record | Done when it holds |
@@ -49,7 +55,7 @@ shows as done, each with its `reads`, as the edit-pipeline skill says, and set `
 With no speech and no brief, find the story in the footage: a provisional arc from what the log
 shows (arrive, discover, peak, leave; before and after; a day from morning to night), its hook and
 its ending, written into the record's `story` (never `brief`) and said to the user as a proposal they can change at
-review. Never add a voice-over to carry it, generated or recorded, unless the user asks; picture,
+review. Never add a voice-over to carry it unless the user asks; picture,
 the shots' own sound and music tell it. On-screen words only when a beat cannot read without them.
 
 ## A second camera

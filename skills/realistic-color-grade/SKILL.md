@@ -1,6 +1,6 @@
 ---
 name: realistic-color-grade
-description: Make a video's colours look more realistic and natural with the ai_realism look — take the over-processed, plastic, AI-generated look off footage with a gentle grade, a shine correction on skin and light colour grain, and choose its values per video. Use when asked to make video colors more realistic, natural or camera-like, to make AI-generated footage look real, to take the glossy or plastic look off skin, or to add subtle grain for realism.
+description: Make a video's colours look more realistic and natural with the ai_realism look — take the over-processed, plastic look off footage with a gentle grade, a shine correction on skin and light colour grain, and choose its values per video. Use when asked to make video colors more realistic, natural or camera-like, to make footage look real, to take the glossy or plastic look off skin, or to add subtle grain for realism.
 metadata:
   category: authoring
   version: '1.1'
@@ -11,8 +11,7 @@ user-invocable: false
 # Colour realism with `ai_realism`
 
 `ai_realism` is the look for "make the colours more realistic". It runs the three passes an
-editor does by hand on footage that looks too clean, too saturated or too glossy — typically
-AI-generated video:
+editor does by hand on footage that looks too clean, too saturated or too glossy:
 
 1. **A gentle grade over the whole frame** — contrast, highlights and saturation pulled down
    slightly, plus an optional white-balance nudge.
@@ -25,13 +24,13 @@ AI-generated video:
 Every pass is subtle on purpose. If the change is visible at a glance, it is too strong.
 
 The footage decides the grain, not the wording: a request that names only the colours still gets
-grain when the footage is perfectly smooth, as AI renders are, and none when it is already noisy
+grain when the footage is perfectly smooth, and none when it is already noisy
 or the user asks for none. Say in your reply how much grain you added and why, and offer to remove
 it.
 
 ## When it fits
 
-- Generated or heavily processed footage: waxy or glossy skin, punchy saturation, crushed
+- Heavily processed footage: waxy or glossy skin, punchy saturation, crushed
   highlights, no noise at all.
 - A request phrased as "more realistic", "more natural", "less AI", "like it was shot on a
   camera", "less plastic".
@@ -68,7 +67,7 @@ whether it already has noise.
 |---|---|---|
 | `strength` | 1 | The grade: highlights and saturation down, contrast barely, so blacks stay deep. Lower (0.4–0.7) for footage that is already soft or low in contrast; 0 skips it. |
 | `temperature` | 0 | Negative (to about -0.3) to cool an orange, over-warm render; positive to warm a cold, blue one. Applies even at `strength` 0. |
-| `skin` | 1 | The shine correction: bright skin's lightness and saturation down, its texture kept. 1 for glossy AI skin, about 0.5 for a light touch, 0 when nobody is in frame or the skin is already matte. In a dark scene it reaches only the brightest skin, as it should. |
+| `skin` | 1 | The shine correction: bright skin's lightness and saturation down, its texture kept. 1 for glossy skin, about 0.5 for a light touch, 0 when nobody is in frame or the skin is already matte. In a dark scene it reaches only the brightest skin, as it should. |
 | `skinHue` | 20 | Rarely. The skin's hue is sampled every frame; this is only the fallback when too little skin is visible to sample. |
 | `skinHueRange` | 25 | Widen (30–40) when part of the shine stays; narrow (15–20) when lips or a warm background change too. |
 | `grain` | 0.08 | 0.05–0.1 is felt rather than seen; from about 0.12 it shows on flat dark areas such as a night sky. Lower for a low-resolution source that will be scaled up (grain is per pixel, so it grows with the scale) and for footage with noise of its own; 0 for none. |

@@ -81,6 +81,22 @@ its quote) it asks "why this?" and tries to show that the direction is wrong bef
 spent on it. It returns `keep`, `rethink` or `stop`, with the reason and the cheaper alternative.
 It also gets the source stills, so a design that drifts from the real app is caught as it is made.
 Its `rethink` of a shot the user saw and kept is a proposal too: an A/B, never a silent swap.
+Each check here is a gate the use case's flow names (CHALLENGE, CRITICS, QC), never a step to
+drop: where no agent can be started, run it yourself from its brief in this skill's references,
+and write its verdict into the project record as the edit-pipeline skill says.
+
+**The set.** When one delivery holds several shorts cut from the same footage, judge them together
+once each has passed alone, with the retention-hooks skill's `what-a-cut-is` question 8: is each a
+different kind of story from the others? Two that tell one story are one short: offer the other
+slot to a different question. Judge it as a series:
+
+- **A named kind per short**: a hot take, a story, a how-to, a number, a laugh or reaction, a
+  reveal. Write the set as a table (short, kind, question); no two rows share both. A set of three
+  has three kinds, or says why not.
+- **A posting order**: first the short a stranger needs the least context for; say which ones lean
+  on another.
+- **One constant format**: the same hook-line place, caption style and end card on every short, so
+  the second one is recognised.
 
 **The QC inspector.** An edit of the user's own footage is checked from its render by an
 inspector who did not make it and never sees why it was made that way: camera steadiness on every
@@ -149,7 +165,7 @@ to export.
 
 ## The script, before the build
 
-Before a short is built, voiced or generated, review its script: is it worth making, what is its
+Before a short is built, review its script: is it worth making, what is its
 why, and which lines to rewrite. A video whose footage never shows its result is dropped before it
 costs anything. The review runs `scripts/script_review.py`; the reference below has its steps.
 

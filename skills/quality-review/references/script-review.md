@@ -2,7 +2,7 @@
 
 A short can be built right and still mean nothing: every line says what to click, none says why
 the viewer should care, and the recording never shows the result. Review the script once it is
-written and before anything is built, voiced or generated, so a video that should not be made
+written and before anything is built, so a video that should not be made
 costs nothing.
 
 It answers three things, each with quotes from the script:

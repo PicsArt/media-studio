@@ -1,6 +1,6 @@
 # Join repair: diagnose the pair before choosing the operation
 
-A join repair is not automatically a transition, an extend or a generation. The accepted A → B cut
+A join repair is not automatically a transition. The accepted A → B cut
 stays exactly as it is while the pair is diagnosed and candidates are compared.
 
 ## Evidence

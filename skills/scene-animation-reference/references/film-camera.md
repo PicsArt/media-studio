@@ -23,3 +23,15 @@ is what pops at the stop.
 
 Verify with `picsart_scene_query_layout` at two times: near layers move by the pan, the background
 layer by half.
+
+
+Draw a mid-band object to end below the floor's top edge: the ground band paints over the mid band,
+so an object ending on the floor line shows its base sliding against the floor as the camera pans.
+
+Check each shot in `picsart_scene_lint_layout`: `{"kind": "bleed", "members": [{"id": "far"}, ...]}` holds every
+plate past the frame edges it bleeds at the first sample (four edges: it covers the frame) at every
+sample, so no band shows a cut edge; and `{"kind": "order", "axis": "paint", "members": [front piece,
+character, ground]}` holds the paint stack front to back (on `axis: "depth"` a character and the ground
+tie at `z = 0` and pass whatever paints first). Scenery drawn past the frame is listed neither as
+mostly off canvas nor in `edgeCut`; the front piece's overlap with the ground stays a collision marked
+`depthStacked`, intended.

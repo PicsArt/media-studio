@@ -24,13 +24,23 @@ at all: it is a beat, not a backbone.
    skill says.
 2. **Snap each to whole thoughts.** A clip's `in` is a sentence's first word, or a word after a
    real pause; its `out` is a sentence's last word, or a word before one. The transcript's
-   `cutPoints` mark the clean ends.
+   `cutPoints` mark the clean ends. Sentence edges keep every word whole; they do not say what a
+   moment is. The question the viewer holds and its answer on screen set where a clip starts and
+   stops, as the retention-hooks skill's `what-a-cut-is` reference says; the transcript then sets
+   the exact frame. A line said after the action, summing it up, is never the moment itself.
 3. **Order and trim to the target.** Order the moments by their loops, as the retention-hooks
    skill says. Aim for the target length within about 15%. **When the length and a clean sentence
    conflict, the sentence wins and the length moves.** Never cut a word out of a sentence to save time: the ear hears the
    splice at once, where the eye would forgive a picture cut.
-4. **Place photos at sentence edges**, never inside one, each held long enough to read.
-5. **Keep what the user saw work.** A recut or a fix starts from the last version the user saw,
+4. **Spend no second on dead air.** Tighten between sentences, never inside one: a wordless gap of
+   more than about 0.7 s inside a clip is cut, unless the plan names the beat the viewer watches in
+   it (the reaction, the play, the laugh) as a source second in the clip's `beats`. Every sentence
+   between the hook and the payoff follows from the one before by "but" or "so"; one that only
+   follows by "and" is the first to go. The opening keeps the retention-hooks skill's opening
+   contract (the first word within about 0.5 s), and the end lands on the peak (cut within about
+   1.5 s of the last word, nothing after it that softens it).
+5. **Place photos at sentence edges**, never inside one, each held long enough to read.
+6. **Keep what the user saw work.** A recut or a fix starts from the last version the user saw,
    never from zero. Every moment they liked stays, with the picture it had; a fix for a constraint
    (a clipped word, a pause, the length) moves an edge, never swaps the moment for another. A
    moment dropped, moved or given a new picture gets one line in the message to the user. Where
@@ -59,6 +69,13 @@ The review also returns `context`: each name the reel says for the first time, e
 right after a seam, each "as I said", and each seam that jumps far in its source, with the second of
 the reel it is heard at and, when the cut drops it, what the source said first. These are not faults.
 They are the places a listener who knows only the reel may get lost.
+
+It also returns `warnings`, the pace measured: `first-word` when the reel's first word is heard
+after 0.5 s, `gap` for each wordless stretch over 0.7 s inside a clip that no `beats` entry names,
+`tail` when the reel runs more than 1.5 s past its last word, and `softener` when its last words
+soften the last line. These thresholds are working numbers, not a platform's, so they warn and
+never fail a clip. Fix each, or say in one line why the cut keeps it. Once the user has shared
+their retention numbers, those outrank them: a drop at a second is fixed whatever the warnings say.
 
 Read the `script` yourself too, as prose,
 for what is clunky; whether a clean clip is worth its seconds is your call.

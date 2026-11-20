@@ -1,6 +1,6 @@
 ---
 name: film-finishing
-description: Finish a film after picture lock - the takes finished to full quality, colour matched and graded from the scene tools' looks, the soundtrack (the takes' own voices, an ambience or music bed), QC, masters, the archive and any AI disclosure. Use when a film's cut is final and it needs finishing, delivery files or its archive.
+description: Finish a film after picture lock - the takes assembled at the finish size, colour matched and graded from the scene tools' looks, the soundtrack (the takes' own voices, an ambience or music bed), QC, masters, the archive and any disclosure a platform asks for. Use when a film's cut is final and it needs finishing, delivery files or its archive.
 user-invocable: false
 ---
 
@@ -40,7 +40,7 @@ the grade refines it and never invents a new one.
 - **Ambience is the glue.**
   A continuous bed under
   each scene hides the level and tone steps. Match levels shot to shot.
-- **Music the user brings** comes in with `picsart_drive_upload_ask` and is laid under the takes'
+- **Music the user brings** comes in with `picsart_drive_upload_ask` (`accept: 'audio'`) and is laid under the takes'
   dialogue and the ambience, never in place of them.
 - A film going to festivals or dubbing needs a sound team: it gets the handoff package, never an
   imitation.

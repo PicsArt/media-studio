@@ -10,7 +10,7 @@ request maps to a tool here, call it; do not substitute a guess for a fact the t
 Tool names are the connector's `picsart_scene_*` (scene authoring), `picsart_media_*` (media
 analysis) and `picsart_*`. These docs often use a short name (`validate_scene`, `patch_scene`) or
 an older `mp_<x>` one. No prefix rule turns a short name into the tool's name, because several
-tools changed their suffix in the 4.6.0 rename (`layout_lint` is now `picsart_scene_lint_layout`).
+tools were renamed with a new suffix (`layout_lint` is now `picsart_scene_lint_layout`).
 Look the short name up in this table. A short name that is not in the table is not a tool:
 do not guess a name for it.
 
@@ -51,11 +51,11 @@ do not guess a name for it.
 | `validate`, `validate_scene` | `picsart_scene_validate` |
 
 **This whole pipeline is free — it uses no
-paid tools.** Compose, query, validate, the panel, `contact_sheet` and `export` are all 0-credit
+paid tools.** Compose, query, validate, the panel, `contact_sheet` and `export` currently cost no credits
 (export/contact_sheet may show a "writes a file / charged"-looking badge from their `readOnlyHint:
-false` annotation — that is behavior, not price; credits are zero).
+false` annotation — that describes behavior, not price; if the host shows a charge, mention it plainly).
 The paid **analysis** tools, such as `picsart_media_describe_video`, say so in their description, and this
-flow calls none of them — so never warn the designer about cost.
+flow calls none of them — so report cost only as the tool or UI reports it.
 
 ## The opening sequence — "add motion to this Figma design"
 
@@ -70,7 +70,7 @@ below are its tool-by-tool summary.
 
 **Phase 0 — orient (all free, one call each):**
 1. `picsart_scene_recipe` — with no `name`, the index of recipes; the `quick-merge-and-export`
-   recipe is the server's on-ramp for common jobs (prefer what a recipe says over this list if
+   recipe is the on-ramp for common jobs (prefer what a recipe says over this list if
    they disagree).
 2. `picsart_scene_capabilities`, schema sections — the scene shape you are about to author.
    **It is ~200KB in full — always narrow it:** ask for `["schemaSummary"]` (field names/types,
@@ -113,7 +113,7 @@ below are its tool-by-tool summary.
 **Phase 2 — create the scene (compose):**
 10. Build each frame as a **composition of scene layers** — one scene layer per imported
     design layer, placed by its `transform` — via `picsart_scene_patch` (`add` ops,
-    id-keyed layers + assets), or a compose recipe/template if the server offers one.
+    id-keyed layers + assets), or a compose recipe/template if one is offered.
     **Never** bind frames to `scene://montage` (that flattens them → slideshow). A
     matched element is **one continuous layer** with per-frame transform states.
 11. Font check against the `list_fonts` result — a missing font is **surfaced**, never
@@ -126,7 +126,7 @@ Only after 13 passes does motion begin: pair 1→2, the edit
 loop, pair by pair. (No Figma connector / flat images only → the flat-frame fallback in
 `design-layer-import`: say it will be a slideshow, offer layered.)
 
-The authoring methods that were once server-only recipes ship as skills of this plugin: read
+The authoring methods that were once recipes ship as skills of this plugin: read
 `figma-storyboard-animation` (the canonical Figma→scene flow), `motion-intent`, `motion-pattern-library`,
 `scene-animation-reference` and `custom-transitions` by name.
 

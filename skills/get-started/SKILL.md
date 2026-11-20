@@ -13,8 +13,8 @@ argument-hint: '[what you want to make]'
 
 When you read `picsart_scene_capabilities` or the recipe index (`picsart_scene_recipe` without `name`), pass `useCase: "get-started"`: the answer leads with what this job reads and names the rest in one line.
 
-Read picsart-video-rules first. One job: in a turn or two, the user knows their account works, has their
-Picsart open if they want it, and knows what to ask for next. Nothing here charges credits.
+Read picsart-video-rules first. One job: in a turn or two, the user knows their account works, has
+Picsart open beside the conversation if they want it and the host can, and knows what to ask for next. Nothing here charges credits.
 
 If the user installed Picsart Video in the middle of a task, do stage 1, then go back to that task
 in the same conversation. Offer the rest in one line at the end instead.
@@ -24,13 +24,13 @@ Before acting on a stage, load the skills in its row that apply to this job, als
 | Stage | Gate | Skills |
 |---|---|---|
 | 1. The account and the credits | — | — |
-| 2. Open Picsart, when the host has it | ASK | open-picsart-app |
+| 2. Open Picsart, when the host has it | ASK | — |
 | 3. What Picsart Video does | — | — |
 | 4. Where to start | ASK | — |
 
 ## 1. The account and the credits
 
-Call `picsart_credits` with `{}`.
+Call `picsart_balance` with `{}`.
 
 - **It answers:** say in one line that the account is connected and give the balance as the tool
   returns it. Never round it, add it up or guess it.
@@ -69,8 +69,10 @@ are here: look at the skills you have, not at this list. Today they can include:
 - `make-screen-videos`: a screen recording of an app or website becomes how-to shorts, a promo or a
   tutorial;
 - `animate-design`: a design or the user's own images and clips become an animated ad or reel;
-- `edit-footage`: the user's own footage becomes a tight vertical short, podcast clips or a finished
+- `edit-footage`: the user's own footage becomes a tight vertical short or a finished
   edit, the best moments in order, with captions and music if they want them;
+- `make-clips`: one long video (a podcast, an interview, a stream) becomes several standalone
+  clips, each one moment, with captions;
 
-ASK (with your host's own question tool, such as AskUserQuestion, so the options are buttons the user taps, the recommended one first; only where the host has none, the options numbered in one message; in unattended pace, never ask: write it to the project record's openDecisions with the answer you assumed, as picsart-video-rules says) with 2–4 of them, plus "Just explore". On a use case, start it by its name, from its first
+ASK (with `picsart_ask`, found as picsart-video-rules says, for any closed choice, a multi-select included, so the options are buttons the user taps, the recommended one first; then your host's own question tool, such as AskUserQuestion; only where all fail, the options numbered in one message; in unattended pace, never ask: write it to the project record's openDecisions with the answer you assumed, as picsart-video-rules says) with 2–4 of them, plus "Just explore". On a use case, start it by its name, from its first
 stage. On "Just explore", invite them to ask for anything from stage 3, and end the turn.
