@@ -4,7 +4,7 @@ description: Build a 3D scene (a composition whose space is 3d) — models (impo
 metadata:
   category: authoring
   version: '1.1'
-  ported-from: 3d-authoring 1.1 at 59.4.0
+  ported-from: 3d-authoring 1.1 at 59.45.0
 user-invocable: false
 ---
 
@@ -46,7 +46,10 @@ document inline and change it with `picsart_scene_patch`.
 
 - **Camera.** `eye` is where it stands, `target` what it looks at, both in metres; `lens.fov`
   is vertical degrees (default 35). Frame the subject by moving the eye, not by scaling the
-  subject. `shutterAngle` 180 with 8 samples is film motion blur for the whole frame.
+  subject. `shutterAngle` 180 with 8 samples is film motion blur for the whole frame. The lens is a
+  perspective lens only: `fov` runs 1 to 179 degrees and `fisheye` bends it, and there is no orthographic
+  camera. For a nearly flat, isometric-looking view set `fov` to a few degrees and put the eye far back (not
+  rendered here; check it on a contact sheet before relying on it).
 - **Light.** Set `composition.lighting` (`schema:Composition3D`): a `preset` — `studio`, `dark`,
   `sky` or `white_room` — then tune any one light over it (`key`, `fill`, `rim`, `ambient`: a key's
   `intensity`, `color`, `direction`, `shadow.softness`). `background`, `environment` and `ground`
@@ -73,7 +76,7 @@ document inline and change it with `picsart_scene_patch`.
 
 ## Models
 
-A model is a GLB `model` asset at a public https URL. Asset keys are identifiers: `p3004`, never `3004`.
+A glTF model uses a `model` asset at a public https URL. Asset keys are identifiers: `p3004`, never `3004`.
 
 - **Origin at the base.** The origin is what `position` places, what a turn pivots on and
   what a squash flattens toward. With the origin at the centre of the base the object stands on
@@ -103,9 +106,9 @@ A model is a GLB `model` asset at a public https URL. Asset keys are identifiers
   this 3D scene, place `url` as a `model` asset and set its parameters and actions on that layer.
   To keep it, or to use it in a 2D scene, call `picsart_scene_library_save` with `jobId` and a
   `name`: it saves one model scene (kind `model`) that declares the model's parameters as its own,
-  and its `sceneUrl` goes in a 2D scene as a scene asset or `scene_ref`. Saving copies the GLB to
-  longer-lived storage (about four weeks, not permanent) and the saved scene carries that URL, so a
-  saved model outlives the expiring `url` of the build. Never re-upload the GLB to Drive.
+  and its `sceneUrl` goes in a 2D scene as a scene asset or `scene_ref`. Saving files the GLB in
+  the user's Drive and the saved scene carries that Drive URL, so a saved model outlives the expiring
+  `url` of the build. Do not upload the GLB to Drive yourself.
 - **Materials.** `content.materials` overrides by material name, `"*"` for all of them.
 - **Model parameters.** A knob the model declares (a colour that makes the studs glow, a bone,
   a shape key) is set per layer through `content.parameters` — a constant or a track, so it can flash
